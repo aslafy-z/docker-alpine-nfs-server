@@ -1,1 +1,1 @@
-/exports		*(rw,async,no_subtree_check,no_auth_nlm,no_root_squash,insecure,crossmnt,fsid=0)
+/exports		*(rw,async,no_subtree_check,no_root_squash,insecure,fsid=0)
