@@ -1,7 +1,6 @@
-#!/bin/sh
+#!/bin/sh -eu
 
-exportfs -o "rw,async,no_subtree_check,no_auth_nlm,no_root_squash,crossmnt,no_ac,fsid=0" *:/exports
-rpcbind
-rpc.statd
-rpc.nfsd
-exec rpc.mountd --foreground
+/usr/sbin/exportfs -r
+/sbin/rpcbind --
+/usr/sbin/rpc.nfsd |:
+/usr/sbin/rpc.mountd -F
