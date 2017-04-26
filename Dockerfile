@@ -1,11 +1,9 @@
 FROM alpine:3.4
 
-RUN apk update \
-	&& apk add nfs-utils \
-	&& rm -rf /var/cache/apk/*
-
-VOLUME /data
-EXPOSE 111/udp 2049/tcp
+RUN apk add --no-cache nfs-utils
 ADD startup.sh /startup.sh
-CMD [ "/startup.sh" ]
-	
+
+VOLUME /exports
+EXPOSE 111/udp 2049/tcp
+
+CMD /startup.sh
